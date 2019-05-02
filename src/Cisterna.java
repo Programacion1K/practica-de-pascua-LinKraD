@@ -1,5 +1,11 @@
 import javax.swing.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.swing.*;
+import java.io.*;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,11 +50,11 @@ public class Cisterna implements Utilizable{
 
     public void guardaEnFichero(File nombreGuardar) {
         try {
-           DataOutputStream DOS=new DataOutputStream(new FileOutputStream(nombreGuardar.getPath()));
+            DataOutputStream DOS=new DataOutputStream(new FileOutputStream(nombreGuardar.getPath()));
             DOS.writeUTF(lista.stream().collect(Collectors.joining("\n")));
             DOS.close();
         } catch (FileNotFoundException fnfe){
-          fnfe.printStackTrace();
+            fnfe.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
